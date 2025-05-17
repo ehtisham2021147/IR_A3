@@ -1,0 +1,35 @@
+Evaluation of Recommendation Models using MovieLens-1M Dataset
+This assignment focuses on implementing and comparing two recommendation system models — a Multilayer Perceptron (MLP) and a Simulated Convolutional Neural Network (CNN) — using the MovieLens-1M dataset. The objective is to evaluate how well these models can predict user preferences and rank unseen movies accurately.
+
+Dataset:
+Source: MovieLens-1M (from Kaggle)
+
+Preprocessing:
+
+Ratings ≥ 4.0 were considered positive interactions.
+
+User and movie IDs were encoded to sequential indices.
+
+A negative sampling strategy was applied to generate implicit negative feedback by randomly selecting items a user has not interacted with.
+
+Models Trained:
+MLP Model: Uses user and item embeddings concatenated and passed through fully connected layers to predict the probability of interaction.
+
+Simulated CNN Model: Mimics CNN behavior by passing reshaped embeddings through a 1D convolutional layer followed by a fully connected classifier.
+
+Training:
+Both models were trained for 5 epochs using binary cross-entropy loss and the Adam optimizer.
+
+Training was done on both positive and negative samples to enable binary classification.
+
+Evaluation Metrics:
+Recall@10: Measures how many of the actual liked movies appeared in the top-10 recommendations.
+
+NDCG@10 (Normalized Discounted Cumulative Gain): Measures both relevance and ranking quality of the top-10 items recommended.
+
+Results:
+Metric	MLP Model	CNN Model
+Recall@10	0.0702	0.0807
+NDCG@10	0.1334	0.1419
+
+The CNN model outperformed the MLP on both metrics, indicating that the simulated CNN architecture was better at learning user–item interaction patterns under the given setup.
